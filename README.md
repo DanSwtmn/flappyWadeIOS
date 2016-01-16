@@ -1,0 +1,29 @@
+# flappyWadeIOS
+Flappy Wade iOS Game
+Optimized for iPhone 6s and 6s Plus
+
+Install:
+  1. Download Flappy Wade.xcodeproj
+  2. Open into xcode
+  3. Plug in iPhone to Mac
+  4. In the top left corner next to the app name click on the "Set Active Screen"
+  5. Set it to your iPhone at the top
+  6. Click the play button 
+  6.5. Fix any code signing issues that might arise
+  7. If you cant open the app due to security reasons go to Settings>General>Device Management
+  8. Click on the developer app "sweetman3895@gmail.com"
+  9. Verify the developer
+  10. Enjoy the game!
+
+Just a quick flappy bird clone.
+
+Current version: 1.0
+
+Known Bugs:
+- none so far
+
+Future Improvements:
+- Better Start Screen
+- Sounds
+- Performance improvements 
+- Downloadable .IPA
