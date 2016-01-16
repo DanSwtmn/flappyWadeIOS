@@ -11,7 +11,7 @@ Install:
   6. Click the play button 
   6.5. Fix any code signing issues that might arise
   7. If you cant open the app due to security reasons go to Settings>General>Device Management
-  8. Click on the developer app "sweetman3895@gmail.com"
+  8. Click on the developer app 
   9. Verify the developer
   10. Enjoy the game!
 
