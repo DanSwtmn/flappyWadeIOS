@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             setHighScore()
             HYPE.position = CGPoint(x: self.frame.width / 2 , y: self.frame.height / 2 )
             HYPE.zPosition = 12
-            HYPE.fontColor = UIColor.redColor()
+            HYPE.fontColor = UIColor.red
             HYPE.fontName = "ChalkboardSE-Regular"
             HYPE.fontSize = 60.0
             HYPE.text = "HYPE!!!:"
@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         highScoreLable.position = CGPoint(x: self.frame.width / 2 - 20, y: self.frame.height / 2 + self.frame.height / 4.4)
         highScoreLable.zPosition = 11
-        highScoreLable.fontColor = UIColor.blackColor()
+        highScoreLable.fontColor = UIColor.black
         highScoreLable.fontName = "ChalkboardSE-Regular"
         highScoreLable.fontSize = 30.0
         highScoreLable.text = "High Score:"
@@ -90,7 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         highScore.position = CGPoint(x: self.frame.width / 2 + 80, y: self.frame.height / 2 + self.frame.height / 4.4)
         highScore.zPosition = 11
-        highScore.fontColor = UIColor.blackColor()
+        highScore.fontColor = UIColor.black
         highScore.fontName = "ChalkboardSE-Regular"
         highScore.fontSize = 25.0
         getHighScore()
@@ -99,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         currentScoreLabel.position = CGPoint(x: self.frame.width / 2 - 20, y: self.frame.height / 2 + self.frame.height / 3.5)
         currentScoreLabel.zPosition = 11
-        currentScoreLabel.fontColor = UIColor.blackColor()
+        currentScoreLabel.fontColor = UIColor.black
         currentScoreLabel.fontName = "ChalkboardSE-Regular"
         currentScoreLabel.fontSize = 30.0
         currentScoreLabel.text = "Your Score:"
@@ -107,7 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         currentScore.position = CGPoint(x: self.frame.width / 2 + 80, y: self.frame.height / 2 + self.frame.height / 3.5)
         currentScore.zPosition = 11
-        currentScore.fontColor = UIColor.blackColor()
+        currentScore.fontColor = UIColor.black
         currentScore.fontName = "ChalkboardSE-Regular"
         currentScore.fontSize = 25.0
         currentScore.text = "\(score)"
@@ -119,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //print("gameStart() has been called")
         gameLable1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + self.frame.height / 4)
         gameLable1.zPosition = 11
-        gameLable1.fontColor = UIColor.blackColor()
+        gameLable1.fontColor = UIColor.black
         gameLable1.fontName = "ChalkboardSE-Regular"
         gameLable1.fontSize = 40.0
         gameLable1.text = "Flappy Wade"
@@ -127,13 +127,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         gameLable2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - self.frame.height / 4)
         gameLable2.zPosition = 11
-        gameLable2.fontColor = UIColor.blackColor()
+        gameLable2.fontColor = UIColor.black
         gameLable2.fontName = "ChalkboardSE-Regular"
         gameLable2.fontSize = 40.0
         gameLable2.text = "Tap to Start!"
         self.addChild(gameLable2)
 
-        gameBtn = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: self.frame.width, height: self.frame.height))
+        gameBtn = SKSpriteNode(color: SKColor.clear, size: CGSize(width: self.frame.width, height: self.frame.height))
         gameBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         gameBtn.zPosition = 10
         self.addChild(gameBtn)
@@ -142,17 +142,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func createScene(){
         //print("createScene() has been called")
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         self.physicsWorld.contactDelegate = self
 
-        roof = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: self.frame.width , height: 10))
+        roof = SKSpriteNode(color: SKColor.clear, size: CGSize(width: self.frame.width , height: 10))
         roof.position = CGPoint(x: self.frame.width / 2, y: 780 - roof.frame.height)
-        roof.physicsBody = SKPhysicsBody(rectangleOfSize: roof.size)
+        roof.physicsBody = SKPhysicsBody(rectangleOf: roof.size)
         roof.physicsBody?.categoryBitMask = physicsCatagory.roof
         roof.physicsBody?.collisionBitMask = physicsCatagory.wade
         roof.physicsBody?.contactTestBitMask = physicsCatagory.wade
         roof.physicsBody?.affectedByGravity = false
-        roof.physicsBody?.dynamic = false
+        roof.physicsBody?.isDynamic = false
         
         roof.zPosition = 3
         
@@ -163,12 +163,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         floor.position = CGPoint(x: self.frame.width / 2, y: 0 + floor.frame.height / 2)
         self.addChild(floor)
         
-        floor.physicsBody = SKPhysicsBody(rectangleOfSize: floor.size)
+        floor.physicsBody = SKPhysicsBody(rectangleOf: floor.size)
         floor.physicsBody?.categoryBitMask = physicsCatagory.floor
         floor.physicsBody?.collisionBitMask = physicsCatagory.wade
         floor.physicsBody?.contactTestBitMask = physicsCatagory.wade
         floor.physicsBody?.affectedByGravity = false
-        floor.physicsBody?.dynamic = false
+        floor.physicsBody?.isDynamic = false
         
         floor.zPosition = 3
         
@@ -177,12 +177,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         wade.size = CGSize(width: 70, height: 70)
         wade.position = CGPoint(x: self.frame.width / 2 - wade.frame.width, y: self.frame.height / 2)
         
-        wade.physicsBody = SKPhysicsBody(circleOfRadius: wade.frame.height / 2.7)
+        wade.physicsBody = SKPhysicsBody(circleOfRadius: wade.frame.height / 2.6)
         wade.physicsBody?.categoryBitMask = physicsCatagory.wade
         wade.physicsBody?.collisionBitMask = physicsCatagory.floor | physicsCatagory.wall | physicsCatagory.roof
         wade.physicsBody?.contactTestBitMask = physicsCatagory.floor | physicsCatagory.wall | physicsCatagory.score | physicsCatagory.roof
         wade.physicsBody?.affectedByGravity = false
-        wade.physicsBody?.dynamic = true
+        wade.physicsBody?.isDynamic = true
         
         wade.zPosition = 2
         
@@ -193,12 +193,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func createRestartBtn(){
         restartLable.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - self.frame.height / 2.8)
         restartLable.zPosition = 11
-        restartLable.fontColor = UIColor.blackColor()
+        restartLable.fontColor = UIColor.black
         restartLable.fontName = "ChalkboardSE-Regular"
         restartLable.fontSize = 40.0
         restartLable.text = "Restart?"
         self.addChild(restartLable)
-        restartBtn = SKSpriteNode(color: SKColor.clearColor(), size: CGSize(width: 150, height: 50))
+        restartBtn = SKSpriteNode(color: SKColor.clear, size: CGSize(width: 150, height: 50))
         restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - self.frame.height / 2.9)
         restartBtn.zPosition = 5
         self.addChild(restartBtn)
@@ -214,18 +214,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         createScene()
     }
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         //startScreen()
         gameStart()
         createScene()
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
         if firstBody.categoryBitMask == physicsCatagory.score && secondBody.categoryBitMask == physicsCatagory.wade || firstBody.categoryBitMask == physicsCatagory.wade && secondBody.categoryBitMask == physicsCatagory.score{
-            score++
+            score += 1
             scoreLable.text = "\(score)"
         }
         
@@ -243,61 +243,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     //Before the first touch on screen
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             if ded == true{
-                if restartBtn.containsPoint(location){
+                if restartBtn.contains(location){
                     restartScene()
                 }
             }
             
-            if startBtn.containsPoint(location){
-                self.removeChildrenInArray([startBtn,startScreenz])
+            if startBtn.contains(location){
+                self.removeChildren(in: [startBtn,startScreenz])
                 //print("startScreen removed starting the game")
                 gameStart()
                 createScene()
             }
             
-            if gameBtn.containsPoint(location){
+            if gameBtn.contains(location){
                 if gameStarted == false{
-                    self.removeChildrenInArray([gameBtn, gameLable1, gameLable2])
+                    self.removeChildren(in: [gameBtn, gameLable1, gameLable2])
                     //print("startGame removed starting the flapping of wade")
                     gameStarted = true
                     
                     scoreLable.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + self.frame.height / 2.5)
                     scoreLable.zPosition = 4
-                    scoreLable.fontColor = UIColor.blackColor()
+                    scoreLable.fontColor = UIColor.black
                     scoreLable.fontName = "ChalkboardSE-Regular"
                     scoreLable.fontSize = 40.0
                     scoreLable.text = "\(score)"
                     self.addChild(scoreLable)
                     
-                    let spawn = SKAction.runBlock({
+                    let spawn = SKAction.run({
                         ()in
                         
                         self.createWalls()
                     })
-                    let delay = SKAction.waitForDuration(2.0)
+                    let delay = SKAction.wait(forDuration: 2.0)
                     let spawnDelay = SKAction.sequence([spawn, delay])
-                    let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
-                    self.runAction(spawnDelayForever)
+                    let spawnDelayForever = SKAction.repeatForever(spawnDelay)
+                    self.run(spawnDelayForever)
                     
                     let distance = CGFloat(self.frame.width + wallPair.frame.width)
-                    let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(0.01 * distance))
+                    let movePipes = SKAction.moveBy(x: -distance, y: 0, duration: TimeInterval(0.01 * distance))
                     let removePipes = SKAction.removeFromParent()
                     
                     moveAndRemove = SKAction.sequence([movePipes, removePipes])
-                    wade.physicsBody?.velocity = CGVectorMake(0,0)
-                    wade.physicsBody?.applyImpulse(CGVectorMake(0, 59))
+                    wade.physicsBody?.velocity = CGVector(dx: 0,dy: 0)
+                    wade.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 58))
                     wade.physicsBody?.affectedByGravity = true
                     
                 }else{
                     if ded == true{
                         self.removeAllActions()
                     }else{
-                        wade.physicsBody?.velocity = CGVectorMake(0,0)
-                        wade.physicsBody?.applyImpulse(CGVectorMake(0, 59))
+                        wade.physicsBody?.velocity = CGVector(dx: 0,dy: 0)
+                        wade.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 58))
                     }
                 }
             }
@@ -309,9 +309,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let scoreNode = SKSpriteNode()
         scoreNode.size = CGSize(width: 1, height: 200)
         scoreNode.position = CGPoint(x: self.frame.width, y: self.frame.height / 2)
-        scoreNode.physicsBody = SKPhysicsBody(rectangleOfSize: scoreNode.size)
+        scoreNode.physicsBody = SKPhysicsBody(rectangleOf: scoreNode.size)
         scoreNode.physicsBody?.affectedByGravity = false
-        scoreNode.physicsBody?.dynamic = false
+        scoreNode.physicsBody?.isDynamic = false
         scoreNode.physicsBody?.categoryBitMask = physicsCatagory.score
         scoreNode.physicsBody?.collisionBitMask = 0
         scoreNode.physicsBody?.contactTestBitMask = physicsCatagory.wade
@@ -328,19 +328,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         topWall.setScale(0.5)
         bottomWall.setScale(0.5)
         
-        topWall.physicsBody = SKPhysicsBody(rectangleOfSize: topWall.size)
+        topWall.physicsBody = SKPhysicsBody(rectangleOf: topWall.size)
         topWall.physicsBody?.categoryBitMask = physicsCatagory.wall
         topWall.physicsBody?.collisionBitMask = physicsCatagory.wade
         topWall.physicsBody?.contactTestBitMask = physicsCatagory.wade
         topWall.physicsBody?.affectedByGravity = false
-        topWall.physicsBody?.dynamic = false
+        topWall.physicsBody?.isDynamic = false
         
-        bottomWall.physicsBody = SKPhysicsBody(rectangleOfSize: bottomWall.size)
+        bottomWall.physicsBody = SKPhysicsBody(rectangleOf: bottomWall.size)
         bottomWall.physicsBody?.categoryBitMask = physicsCatagory.wall
         bottomWall.physicsBody?.collisionBitMask = physicsCatagory.wade
         bottomWall.physicsBody?.contactTestBitMask = physicsCatagory.wade
         bottomWall.physicsBody?.affectedByGravity = false
-        bottomWall.physicsBody?.dynamic = false
+        bottomWall.physicsBody?.isDynamic = false
         
         wallPair.addChild(topWall)
         wallPair.addChild(bottomWall)
@@ -351,20 +351,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let randomPosition = CGFloat.random(min: -200, max: 200)
         wallPair.position.y = wallPair.position.y + randomPosition
         
-        wallPair.runAction(moveAndRemove)
+        wallPair.run(moveAndRemove)
         
         self.addChild(wallPair)
     }
     
     func setHighScore(){
         let highestScore = score
-        NSUserDefaults.standardUserDefaults().setObject(highestScore, forKey:"HighScore")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(highestScore, forKey:"HighScore")
+        UserDefaults.standard.synchronize()
     }
     
     func getHighScore(){
-        if NSUserDefaults.standardUserDefaults().objectForKey("HighScore") != nil{
-            let savedScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("HighScore") as! Int
+        if UserDefaults.standard.object(forKey: "HighScore") != nil{
+            let savedScore: Int = UserDefaults.standard.object(forKey: "HighScore") as! Int
             print(savedScore)
             highScoreNum = savedScore
         }else{
@@ -372,7 +372,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
     }
 }
